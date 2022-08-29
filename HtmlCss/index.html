@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        html{
+            font-size: 20px;
+        }
+        p::first-letter{
+            font-size: 50px;
+        }
+        p::before{
+            content: 'font';
+        }
+        p::selection{
+            color: red;
+        }
+        #box{
+            font-size: 20px;
+            background-color: black;
+            width: 10em;
+            height: 10em;
+            width: 10rem;
+            height: 10rem;
+        }
+        #box1{
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            background: bisque;
+            padding: 20px;
+            border: 20px solid blueviolet;
+
+            box-shadow: 10px 10px 10px green;
+           
+        }
+        #box1:hover{
+            outline: 10px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">盒模型</div>
+    <div id="box"></div>
+    <p>HTML css javascript python 
+        <br/>node webpack typescript git </p>
+</body>
+</html>

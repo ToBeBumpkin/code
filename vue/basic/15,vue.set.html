@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.set</title>
+    <script src="../js//vue.js"></script>
+
+</head>
+
+<body>
+    <div id="root">
+        <h3>school</h3>
+        <p>name:{{school.name}}</p>
+        <p>address:{{school.address}}</p>
+        <h3>student</h3>
+        <button @click="addSex">添加一个sex信息，默认值是男</button>
+        <p>name:{{student.name}}</p>
+        <p>age:{{student.age}}</p>
+        <p v-if="student.sex">sex:{{student.sex}}</p>
+        <h3>friend:</h3>
+        <p v-for="(f,index) in student.friends" :key="index">
+            {{f.name}}---{{f.age}}
+        </p>
+        <div>
+            <h3>hoppy:</h3>
+            <button @click="addHoppy">添加一个hoppy信息</button>
+            <p v-for="(h,index) in student.hoppy" :key="index">
+                {{h}}
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+                    school: {
+                        name: "大学",
+                        address: "上海"
+                    },
+                    student: {
+                        name: "小明",
+                        age: 12,
+                        hoppy: ['抽烟', '喝酒'],
+                        friends: [
+                            { name: "小黄", age: 18 },
+                            { name: "富贵", age: 42 },
+                        ]
+                    },
+
+
+                }
+            },
+            methods: {
+                addSex() {
+                    // Vue.set(this.student[0],'sex','男')
+                    this.$set(this.student, 'sex', '男')
+
+                    console.log(this.student);
+                },
+                addHoppy(){
+                    // Vue.set(this.student.hoppy,0,'大牌')
+                    this.student.hoppy.push("打牌")
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

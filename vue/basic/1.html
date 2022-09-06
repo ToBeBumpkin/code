@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js//vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- //数据绑定 -->
+        <h1>hello,{{name}}</h1>
+        <!-- 模版语法 -->
+        <p>
+            <a :href="c.url">{{c.name}}</a>
+        </p>
+        <!-- 双向绑定 -->
+        <p>单项数据绑定：<input type="text" :value="dan">{{dan}}</p>
+        <p>双向数据绑定：<input type="text" v-model="suang">{{suang}}</p>
+    </div>
+    <script>
+        Vue.config.productionTip = false    //设置为 false 以阻止 vue 在启动时生成生产提示。
+
+        // 第一种写法
+        new Vue({
+            el: "#root",
+            //第一种 对象式写法
+            // data: {
+            //     name: "world",
+            //     c: {
+            //         url: "https://www.baidu.cpm",
+            //         name: "百度"
+            //     },
+            //     dan: "单项数据绑定",
+            //     suang: "双向数据绑定",
+            // },
+            //第二种 函数式写法 以后都要用 不能用箭头函数
+            data() {
+                console.log("@@@",this);
+                return {
+                    name: "world",
+                    c: {
+                        url: "https://www.baidu.cpm",
+                        name: "百度"
+                    },
+                    dan: "单项数据绑定",
+                    suang: "双向数据绑定",
+                }
+            }
+        })
+
+        // 第二种写法 更灵活 可之后指定
+
+        // const v = new Vue({
+        //     el: "#root",
+        //     data: {
+        //         name: "world",
+        //         c: {
+        //             url: "https://www.baidu.cpm",
+        //             name: "百度"
+        //         },
+        //         dan: "单项数据绑定",
+        //         suang: "双向数据绑定",
+        //     }
+        // })
+        // v.$mount('#root')
+
+    </script>
+</body>
+
+</html>

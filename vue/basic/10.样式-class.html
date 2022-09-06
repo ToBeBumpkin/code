@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监视属性</title>
+    <script src="../js//vue.js"></script>
+    <style>
+        .s1{
+            color: red;
+        }
+        .s2{
+            border: 1px solid black;
+        }
+        .s3{
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <h1 :class="{s1:isshow ? true : false}">今天天气</h1>
+        <h2 :style="">ldjflsjfldjsfjdlk</h2>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+                    isshow:true,
+                    sarr:{
+                        s1:true,
+                        s2:false
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

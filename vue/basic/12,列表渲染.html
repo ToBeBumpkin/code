@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+    <script src="../js//vue.js"></script>
+    
+</head>
+
+<body>
+    <div id="root">
+        <!-- 数组渲染 -->
+        <ul>
+            <li v-for="(a,b) in arr" :key="a.id">
+                {{a}}----{{b}}
+            </li>
+        </ul>
+        <!-- 对象渲染 -->
+        <ul>
+            <li v-for="(a,b,c) in obj" :key="c">
+                {{a}}----{{b}}----{{c}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+                    arr:[
+                        {
+                            id:"001",
+                            name:"小明",
+                            age:12
+                        },
+                        {
+                            id:"002",
+                            name:"小红",
+                            age:12
+                        },
+                        {
+                            id:"003",
+                            name:"小张",
+                            age:12
+                        }
+                    ],
+                    obj:{
+                        name:"什么",
+                        age:122,
+                        gender:"男"
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

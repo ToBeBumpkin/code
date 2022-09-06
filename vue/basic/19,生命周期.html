@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命周期</title>
+    <script src="./js//vue.js"></script>
+
+</head>
+
+<body>
+    <div id="root">
+        <h1 :style="{opacity}">hello world</h1>
+    </div>
+    <!-- 模版解析---》虚拟dom---》真实dom---》放入页面（挂载完毕）---》调用mounted -->
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+                    opacity: 1
+                }
+            },
+            mounted() {
+                this.timer = setInterval(() => {
+                    console.log(this.opacity);
+                    this.opacity -= 0.1
+                    if (this.opacity <= 0) this.opacity = 1
+                }, 100)
+            },
+            beforeDestroy() {
+                clearInterval(this.timer)
+            },
+        })
+    </script>
+</body>
+
+</html>

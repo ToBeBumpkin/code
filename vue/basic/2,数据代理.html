@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据代理</title>
+</head>
+
+<body>
+    <script>
+        let num = 19;
+        let person = {
+            name: "小明",
+            sex: "男",
+            // age: 20
+        }
+
+        Object.defineProperty(person, 'age', {
+            // value:30,
+            // writable:true,
+            // configurable:true,
+            // enumerable,
+            get() {
+                console.log("有人读取age属性");
+                return num;
+            },
+            set(value) {
+                console.log("有人修改age属性，且值为", value);
+                num = value
+            }
+        })
+
+        console.log(person);
+    </script>
+</body>
+
+</html>

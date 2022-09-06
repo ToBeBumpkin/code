@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件</title>
+    <script src="./js//vue.js"></script>
+
+</head>
+
+<body>
+    <div id="root">
+        <school></school>
+        <student></student>
+        <hello></hello>
+    </div>
+
+    <script>
+        const hello = Vue.extend({
+            template: `
+            <div>
+                <p>{{msg}}</p>
+            </div>
+            `,
+            data() {
+                return {
+                    msg: "全局注册",
+                }
+            }
+        })
+        Vue.component('hello',hello)
+        const school = Vue.extend({
+            template: `
+            <div>
+                <p>{{name}}</p>
+                <p>{{age}}</p>
+            </div>
+            `,
+            data() {
+                return {
+                    name: "承载小学",
+                    age: 12
+                }
+            }
+        })
+        const student = Vue.extend({
+            template: `
+            <div>
+                <p>{{name}}</p>
+                <p>{{age}}</p>
+            </div>
+            `,
+            data() {
+                return {
+                    name: "小明",
+                    age: 12
+                }
+            }
+        })
+        const vm = new Vue({
+            el: "#root",
+            components: {
+                school,
+                student,
+            }
+        })
+    </script>
+</body>
+
+</html>

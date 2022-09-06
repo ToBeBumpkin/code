@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie</title>
+</head>
+
+<body>
+    <h1>xxxxxxxxx</h1>
+    <h3 id="content"></h3>
+    <button onclick="setCookie()">存储</button>
+    <button onclick="getCookie()">获取</button>
+    <button onclick="deleteCookie()">删除</button>
+    <button onclick="clearCookie()">清空</button>
+    <script>
+        console.log(cookie);
+        function setCookie() {
+            let hobby = ['读书', '抽烟', '喝酒']
+            cookie.setItem('name', '小明')
+            cookie.setItem('age', 12)
+            cookie.setItem('hobby', JSON.stringify(hobby))
+        }
+        function getCookie() {
+            console.log(cookie.getItem('name'));
+            console.log(cookie.getItem('age'));
+            console.log(JSON.parse(cookie.getItem('hobby')));
+        }
+        function deleteCookie() {
+            cookie.removeItem('name')
+        }
+        function clearCookie() {
+            cookie.clear()
+        }
+    </script>
+</body>
+
+</html>

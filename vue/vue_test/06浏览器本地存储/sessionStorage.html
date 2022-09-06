@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage</title>
+</head>
+
+<body>
+    <h1>sessionStorage</h1>
+    <h3 id="content"></h3>
+    <button onclick="setSessionStorage()">存储</button>
+    <button onclick="getSessionStorage()">获取</button>
+    <button onclick="deleteSessionStorage()">删除</button>
+    <button onclick="clearSessionStorage()">清空</button>
+    <script>
+        console.log(sessionStorage);
+        function setSessionStorage() {
+            let hobby = ['读书', '抽烟', '喝酒']
+            sessionStorage.setItem('name', '小明')
+            sessionStorage.setItem('age', 12)
+            sessionStorage.setItem('hobby', JSON.stringify(hobby))
+        }
+        function getSessionStorage() {
+            console.log(sessionStorage.getItem('name'));
+            console.log(sessionStorage.getItem('age'));
+            console.log(JSON.parse(sessionStorage.getItem('hobby')));
+        }
+        function deleteSessionStorage() {
+            sessionStorage.removeItem('name')
+        }
+        function clearSessionStorage() {
+            sessionStorage.clear()
+        }
+    </script>
+</body>
+
+</html>

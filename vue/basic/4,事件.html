@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <script src="../js//vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <button @click="showMsg">不带参数</button>
+        <button @click="showMsg2($event,'什么')">带参数</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+                    msg:"信息"
+                }
+            },
+            methods:{
+                showMsg(event){
+                    console.log("event",event);
+                    console.log('不带参数');
+                },
+                showMsg2(event,a){
+                    console.log("this",this);
+                    console.log("event",event);
+                    console.log("a",a);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

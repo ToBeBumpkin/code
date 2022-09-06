@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收集表单</title>
+    <script src="./js//vue.js"></script>
+
+</head>
+
+<body>
+    <div id="root">
+        <form @submit.prevent="sub">
+            姓名:<input type="text" v-model.trim="info.name" /><br>
+            密码:<input type="password" v-model="info.password" /><br>
+            年龄:<input type="number" v-model.number="info.age" /><br>
+            性别:
+            男<input type="radio" v-model="info.sex" value="male" />
+            女<input type="radio" v-model="info.sex" value="remale" /><br>
+            爱好：
+            抽烟<input type="checkbox" v-model="info.hobby" value="cy" />
+            喝酒<input type="checkbox" v-model="info.hobby" value="hj" />
+            打牌<input type="checkbox" v-model="info.hobby" value="dp" /><br>
+            地址:
+            <select v-model="info.city">
+                <option value="shanghai">上海</option>
+                <option value="beijing">北京</option>
+                <option value="shenzhen">深圳</option>
+            </select><br>
+            其他：<textarea v-model.lazy="info.other"></textarea><br>
+            <input type="checkbox" v-model="info.agree" />同意
+
+            <button>提交</button>
+        </form>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+                    info: {
+                        name: '',
+                        password: '',
+                        age: 10,
+                        sex: 'male',
+                        hobby: [],
+                        city: 'shanghai',
+                        other: null,
+                        agree: null
+                    }
+                }
+            },
+            methods: {
+                sub(){
+                    console.log(JSON.stringify(this.info));
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

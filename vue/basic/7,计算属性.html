@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <script src="../js//vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <input type="text" placeholder="firstname" v-model="firstname">
+        <br>
+        <input type="text" placeholder="lastname" v-model="lastname">
+        <br>
+        {{fullname}}
+        <br>
+        <button @click="changeFullname">修改fullname</button>
+    </div>
+
+
+
+    <script>
+        const vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+                    firstname: "张",
+                    lastname: "小明"
+                }
+            },
+            methods: {
+                changeFullname() {
+                    this.fullname = "李-富贵"
+                }
+            },
+            computed: {
+                //完整版
+                // fullname: {
+                //     get() {
+                //         console.log("get 被调用了");
+                //         return this.firstname + "-" + this.lastname
+                //     },
+                //     set(value) {
+                //         console.log("set 被调用了");
+                //         console.log(value);
+                //         let a = value.split('-')
+                //         this.firstname = a[0]
+                //         this.lastname = a[1]
+                //     }
+                // }
+                //简写
+                fullname() {
+                    console.log("get 被调用了");
+                    return this.firstname + "-" + this.lastname
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

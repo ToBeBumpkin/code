@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue3</title>
+</head>
+
+<body>
+    <script>
+        let person = {
+            name: '小明',
+            age: 12
+        }
+
+        //defineProperty 方法
+        // let p = {}
+        // for (const key in person) {
+
+        //     Object.defineProperty(p, key, {
+        //         get() {
+        //             console.log(`获取${key}的值`);
+        //             return person.name
+        //         },
+        //         set(value) {
+        //             console.log(`设置${key}的值`);
+        //             person[key] = value
+        //         }
+        //     })
+        // }
+
+
+        //proxy 方法
+        const p = new Proxy(person, {
+            get(target, propName) {
+                console.log(`有人读取了p身上的${propName}属性`);
+                return Reflect.get(target, propName)
+            },
+            set(target, propName, value) {
+                console.log(`有人设置了p身上的${propName}属性,值为${value}`);
+                return Reflect.set(person, propName, value)
+            },
+            deleteProperty(target, propName) {
+                console.log(`有人删除了p身上的${propName}属性`);
+                return Reflect.deleteProperty(target, propName)
+            }
+        })
+
+    </script>
+</body>
+
+</html>

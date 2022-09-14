@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #c3c3c3;
+        }
+        .box{
+            margin: 100px auto;
+            position: relative;
+        }
+        .box::after{
+            content: "";
+            display: block;
+            position: absolute;
+            height: 1px;
+            z-index: -1;
+            width: 100%;
+            top: 50%;
+            background-color: black;
+        }
+        .box ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+        .box ul li{
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid red;
+            background-image: radial-gradient(red 0%,red 50%,#fff 50%, #fff 100%);
+        }
+        .box ul li span{
+            white-space: nowrap;
+            display: block;
+            transform: translate(-14px,-20px);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <span>预约房间</span>
+            </li>
+            <li>
+                <span>拎包入住</span>
+            </li>
+            <li>
+                <span>开房进行中</span>
+            </li>
+            <li>
+                <span>付款走人</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

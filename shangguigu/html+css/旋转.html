@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        div img{
+            transition: all 2s;
+            transform-origin: left top;
+            width: 500px;
+        }
+        img:nth-child(1):hover{
+            transform: rotate(90deg);
+        }
+        img:nth-child(2):hover{
+            transform: rotateX(90deg);
+        }
+        img:nth-child(3):hover{
+            transform: rotateY(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./img/bg1.jpeg" alt="">
+        <img src="./img/bg1.jpeg" alt="">
+        <img src="./img/bg1.jpeg" alt="">
+    </div>
+</body>
+</html>

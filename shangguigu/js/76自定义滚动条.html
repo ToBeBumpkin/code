@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .wrap {
+            height: 100%;
+            background-color: aqua;
+            overflow-y: scroll;
+        }
+
+        .scrollWrap {
+            width: 20px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: blue;
+        }
+
+        .scrollIn {
+            width: 100%;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .content {
+            position: absolute;
+            background-color: blanchedalmond;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="content">
+            <ul class="list"></ul>
+        </div>
+        <div class="scrollWrap">
+            <div class="scrollIn"></div>
+        </div>
+
+    </div>
+    <script>
+        window.onload = function () {
+            let content = document.querySelector('.content')
+            let scrollIn = document.querySelector('.scrollIn')
+            let list = document.querySelector('.list')
+            for (let i = 0; i < 200; i++) {
+                let li = document.createElement('li')
+                li.innerHTML = i
+                list.appendChild(li)
+            }
+
+
+            let H = document.documentElement.clientHeight
+            // 滑块的高度 / 滑槽的高度 = 屏幕的高度 / 内容的高度 = 滚动条的滚动距离 / 内容的滚动距离
+            let scale = document.documentElement.clientHeight / list.offsetHeight
+
+            scrollIn.style.height = document.documentElement.clientHeight * scale + 'px'
+            console.log(scale);
+
+            scrollIn.onmousedown = function (e) {
+                e = e || window.event
+
+                let startY = e.clientY
+                let eleY = scrollIn.offsetTop
+                document.onmousemove = function (e) {
+                    e = e || window.event
+                    let endY = e.clientY
+                    let disY = endY - startY
+
+                    let lastY = eleY + disY
+
+                    if (lastY > H - scrollIn.clientHeight) {
+                        lastY = H - scrollIn.clientHeight
+                    } else if (lastY < 0) {
+                        lastY = 0
+                    }
+                    scrollIn.style.top = lastY + 'px'
+
+                    let contentY = lastY / scale
+
+                    console.log(contentY);
+
+                    content.style.top = -contentY + 'px'
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null
+                }
+                return false
+            }
+
+            let tag = document.querySelector('div')
+
+            document.addEventListener('mousewheel', fun)
+            document.addEventListener('DOMMouseScroll', fun)
+
+            let flag = true;
+            function fun(e) {
+                if (e.wheelDelta) {
+                    console.log('ie/chrome');
+                    if (e.wheelDelta < 0) {
+                        flag = false
+                    } else {
+                        flag = true
+                    }
+                } else if (e.detail) {
+                    console.log('firefox');
+                    if (e.detail > 0) {
+                        flag = false
+                    } else {
+                        flag = true
+                    }
+                }
+                if (flag) {
+                    var offsetTop = scrollIn.offsetTop - 10
+
+                } else {
+                    var offsetTop = scrollIn.offsetTop + 10
+
+                }
+                if (offsetTop < 0) {
+                    offsetTop = 0
+                } else if (offsetTop > H - scrollIn.offsetHeight) {
+                    offsetTop = H - scrollIn.offsetHeight
+                }
+
+                scrollIn.style.top = offsetTop + 'px'
+                let contentY = offsetTop / scale
+                content.style.top = -contentY + 'px'
+
+            }
+        }
+    </script>
+</body>
+
+</html>

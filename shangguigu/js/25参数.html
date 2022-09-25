@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 改变量，不影响其他
+        // function fn(a) {
+        //     console.log(a);
+        //     a = 20;
+        //     console.log(a);
+        // }
+        // let a = 10;
+        // fn(a)
+        // console.log(a);
+
+        // 改对象，会影响其他
+        function fn(a) {
+            console.log(a);
+            a.name = "小王";
+            console.log(a);
+        }
+        let a = {name:"小明"};
+        fn(a)
+        console.log(a);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

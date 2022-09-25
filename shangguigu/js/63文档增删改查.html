@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <ul></ul>
+    <script>
+        window.onload = function () {
+            let inputNode = document.querySelector('input');
+
+            let ulNode = document.querySelector('ul')
+            inputNode.onkeyup = function (e) {
+                // console.log(e.keyCode);
+                if (e.keyCode !== 13) {
+                    return
+                }
+                let value = this.value.trim();
+                if (value === '') {
+                    alert('不能为空')
+                    return
+                }
+                console.log(11);
+                let liNode = document.createElement('li')
+                let btnNode = document.createElement('button')
+                btnNode.innerText = 'remove'
+                btnNode.className = 'delBtn'
+                let btnNode2 = document.createElement('button')
+                btnNode2.innerText = 'replace'
+                btnNode2.className = 'repBtn'
+
+                liNode.innerHTML = value
+
+                liNode.appendChild(btnNode)
+                liNode.appendChild(btnNode2)
+                ulNode.appendChild(liNode)
+                this.value = ''
+
+
+                let removeNode = document.querySelectorAll('.delBtn');
+                let replaceNode = document.querySelectorAll('.repBtn');
+                let liNodes = ulNode.querySelectorAll('li')
+
+                for (let i = 0; i < liNodes.length; i++) {
+                    this.index = i
+                    removeNode[i].onclick = function () {
+                        console.log('remove');
+                        ulNode.removeChild(liNodes[i])
+                    }
+                    replaceNode[i].onclick = function () {
+                        console.log('replace');
+                        let spanNode = document.createElement('span')
+                        spanNode.innerHTML = 'aaa'
+                        console.log(spanNode);
+                        ulNode.replaceChild(spanNode, liNodes[i])
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

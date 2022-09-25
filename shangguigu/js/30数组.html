@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let arr = []
+        // console.log(arr instanceof Array);
+
+
+        let arr = ['唐僧','孙悟空','猪八戒','沙和尚']
+        // arr.push('小白马')   //后添加一个
+        // arr.push('小白马','女儿国国王')  //后添加多个
+        // arr.unshift('牛魔王','铁扇公主') //前添加多个
+        // let res = arr.shift()    //前删除
+        // let res = arr.pop()  //后删除
+        // console.log(res);
+        // console.log(arr);
+
+
+        // slice 
+        //     截取数组，该方法不会影响到原数组，而将结果保存到新数组
+        // let newArr = arr.slice(0,2) //从下标0开始截取2个
+        // let newArr = arr.slice(1) //从下标1开始截取到最后
+        // let newArr = arr.slice(1,-1) //从下标1开始截取到倒数第一个
+        // console.log(newArr);
+
+
+        // splice
+        //     多功能方法，用来删除，添加，替换数组中的元素，是破坏性的方法
+            // 第一个参数：起始位置
+            // 第二个参数：操作数量
+            // 之后的参数：添加的元素
+        
+        // let res = arr.splice(0,2)
+        // let res = arr.splice(1,2,'白骨精','玉兔精')
+        let res = arr.splice(1,0,'豹子精','大象精','狮子精')
+
+        console.log(res);
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

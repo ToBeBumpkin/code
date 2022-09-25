@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // this    
+        //     以函数形式调用，是window
+        //     以方法形式调用，是调用对象
+        //     以构造函数形式调用，是新创建的那个对象
+        //     以call,apply形式调用，是第一个参数
+        //     以箭头形式调用，是外层作用域决定
+
+        let obj = {
+            name:'小明',
+            say:function(){
+                console.log(this);
+                // function inner(){
+                //     console.log(this);
+                // }
+                let inner = () => {
+                    console.log(this);
+                }
+                inner()
+            }
+        }
+        obj.say()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

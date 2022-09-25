@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let obj = {
+            name:'小明',
+            age:12,
+            hobby:['抽烟','喝酒','烫头'],
+            say(){
+                console.log('哈哈');
+            }
+        }
+        let r1 = JSON.stringify(obj)
+        console.log(r1);
+
+        let r2 = JSON.parse(r1)
+        console.log(r2);
+
+        let r3 = JSON.parse(JSON.stringify(obj))
+
+        console.log(obj === r3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #tag {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tag"></div>
+
+    <script>
+        window.onload = function () {
+            let tag = document.querySelector('#tag')
+
+            let W = document.documentElement.clientWidth
+            let H = document.documentElement.clientHeight
+
+            let tagW = tag.clientWidth
+            let tagH = tag.clientHeight
+
+            let step = 3;
+            let step2 = 3
+            let startLeft = 0;
+            let startTop = 0;
+
+            setInterval(() => {
+                startLeft += step
+                startTop += step2
+                if (startLeft > (W - tagW)) {
+                    step = -step
+                } else if (startLeft <= 0) {
+                    step = -step
+                }
+                if (startTop > (H - tagH)) {
+                    step2 = -step2
+                } else if (startTop <= 0) {
+                    step2 = -step2
+                }
+
+                tag.style.left = startLeft + 'px'
+                tag.style.top = startTop + 'px'
+            }, 20)
+        }
+    </script>
+</body>
+
+</html>

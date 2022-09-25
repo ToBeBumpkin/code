@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // this
+        //     以函数形式调用，this是window
+        //     以方法形式调用，this是调用方法的对象
+            // 以构造函数形式调用，this是新创建的对象
+            // 以call，apply调用，是第一个参数
+
+
+        // call
+        //     函数的方法
+        //     第一个参数，就是this
+        //     后面的参数，方法的实参
+        // apply
+        //     第一个参数，就是this    
+        //     第二个参数，数组
+
+
+        function Fn() {
+            console.log(this);
+        }
+        function fn2(a, b) {
+            console.log(a, b, this);
+        }
+
+        Fn()
+        let obj = {
+            test: Fn
+        }
+        obj.test()
+        let f = new Fn()
+
+        Fn.call('111')
+        Fn.call(obj)
+        Fn.call(2)
+
+        fn2.call('111',1,2)
+        fn2.call(obj,1,2)
+        fn2.call(2,1,2)
+
+
+        Fn.apply('111')
+        Fn.apply(obj)
+        Fn.apply(2)
+
+        fn2.apply('111',[1,2])
+        fn2.apply(obj,[1,2])
+        fn2.apply(2,[1,2])
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

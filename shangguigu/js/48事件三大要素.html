@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 事件三要素
+        //     事件源  要操作的对象
+        //     事件的类型  单击 双击 移入 移除 键盘
+        //     回调函数
+
+
+        window.onload = function () {
+            let btn = document.getElementsByTagName('button')[0]
+            console.log(btn);
+            let tag = document.getElementById('tag')
+            tag.innerHTML = a()
+            btn.onclick = function () {
+                console.log(a instanceof add);
+                tag.innerHTML = a()
+            }
+        }
+
+
+        function add() {
+            let num = 0;
+            function inner() {
+                num++
+                return num
+            }
+            return inner
+        }
+        let a = add()
+    </script>
+</head>
+
+<body>
+    <button>+1</button>
+    <div id="tag">tag</div>
+</body>
+
+</html>

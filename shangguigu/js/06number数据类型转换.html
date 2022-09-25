@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // NaN   not a number
+        // 1,Number() 可以被用于所有类型
+        // 2，parseInt(),parseFloat() 只针对字符串
+
+        let g = "123px234"
+        let h = "456.34px567"
+        console.log(`
+        g = ${g},
+        typeof g = ${typeof g},
+        parseInt(g) = ${parseInt(g)},
+        typeof parseInt(g) = ${typeof parseInt(g)}`);
+        console.log(`
+        h = ${h},
+        typeof h = ${typeof h},
+        parseFloat(h) = ${parseFloat(h)},
+        typeof parseFloat(h) = ${typeof parseFloat(h)}`);
+        
+        let a = 20;
+        let b = '123hello'
+        let c = true
+        let d = null
+        let e = undefined
+        let f = ""
+        console.log(`
+        a=${a},
+        typeof a = ${typeof a},
+        Number(a)=${Number(a)},
+        typeof Number(a) = ${typeof Number(a)}`);
+        console.log(`
+        b=${b},
+        typeof b = ${typeof b},
+        Number(b)=${Number(b)},
+        typeof Number(b) = ${typeof Number(b)}`);
+        console.log(`
+        c=${c},
+        typeof c = ${typeof c},
+        Number(c)=${Number(c)},
+        typeof Number(c) = ${typeof Number(c)}`);
+        console.log(`
+        d=${d},
+        typeof d = ${typeof d},
+        Number(d)=${Number(d)},
+        typeof Number(d) = ${typeof Number(d)}`);
+        console.log(`
+        e=${e},
+        typeof e = ${typeof e},
+        Number(e)=${Number(e)},
+        typeof Number(e) = ${typeof Number(e)}`);
+        console.log(`
+        f=${f},
+        typeof f = ${typeof f},
+        Number(f)=${Number(f)},
+        typeof Number(f) = ${typeof Number(f)}`);
+    </script>
+</body>
+
+</html>

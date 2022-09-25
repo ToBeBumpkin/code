@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 150px;
+            margin: 100px auto;
+            background-color: green;
+            color: white;
+            font-size: 60px;
+            text-align: center;
+            line-height: 150px;
+            cursor: pointer;
+            position: relative;
+            transition: all 1s;
+        }
+        #box::after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 5px;
+            width: 0;
+            background-color: green;
+            transition: all 1s;
+        }
+        #box::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 0;
+            background-color: green;
+            transition: all 1s;
+        }
+
+        #box:hover{
+            background-color: white;
+            color: green;
+        }
+        #box:hover::after,#box:hover::before{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        HTML
+    </div>
+
+    
+</body>
+</html>

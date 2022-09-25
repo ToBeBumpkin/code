@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sayHello = function () {
+            console.log(`hello 大家好 我是${this.name}`);
+        }
+
+        let p1 = new Person('熊明', 45);
+        let p2 = new Person('旺财', 12)
+
+        console.log(Person.prototype === p1.__proto__);
+        p1.sayHello()
+        p2.sayHello()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

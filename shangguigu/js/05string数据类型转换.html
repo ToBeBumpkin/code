@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数据类型转换
+        // 1，.toString() 因为null underfind 原型方法,所以不能用
+        // 2，String() string number boolean 有toString()方法时，还是调用toString() null undefined 没有的时候才用String()转换
+
+        let a = 20;
+        let b = 'hello'
+        let c = true
+        let d = null
+        let e = undefined
+        a = a.toString()
+        b = b.toString()
+        c = c.toString()
+        d = String(d)
+        e = String(e)
+        // e = e.toString()
+        console.log(a,typeof a);
+        console.log(b,typeof b);
+        console.log(c,typeof c);
+        console.log(d,typeof d);
+        console.log(e,typeof e);
+    </script>
+</body>
+</html>

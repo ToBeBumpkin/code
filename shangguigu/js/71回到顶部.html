@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2500px;
+        }
+
+        button {
+            position: fixed;
+            right: 0;
+            bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>回到顶部</button>
+
+    <script>
+        window.onload = function () {
+            let btn = document.querySelector('button')
+
+            let time = 2000
+            let itemTime = 20
+
+            btn.onclick = function () {
+                let offset = document.documentElement.scrollTop + document.body.scrollTop
+                let itemOffset = offset / (time / itemTime)
+
+                let timer = setInterval(() => {
+                    if (offset <= 0) {
+                        clearInterval(timer)
+                    }
+                    offset -= itemOffset
+                    document.documentElement.scrollTop = document.body.scrollTop = offset
+                }, itemTime)
+            }
+        }
+    </script>
+</body>
+
+</html>

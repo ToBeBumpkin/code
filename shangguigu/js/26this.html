@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 谁调用，this就是谁
+        var name = "window唐僧"
+        function fn() {
+            console.log(this);
+            console.log(this.name);
+        }
+        let obj = {
+            name: "obj孙悟空",
+            say: fn
+        }
+        let obj2 = {
+            name: "obj2猪八戒",
+            say: fn
+        }
+        fn()
+        obj.say()
+        obj2.say()
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

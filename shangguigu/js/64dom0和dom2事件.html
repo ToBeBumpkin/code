@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        window.onload = function () {
+            let box = document.querySelector('#box')
+
+            // box.onclick = function(){
+            //     console.log('点击1');
+            // }
+
+            // box.onclick = function(){
+            //     console.log('点击2');
+            // }
+
+            // box.onclick = null
+
+            // function fn1(){
+            //     console.log('点击1');
+            // }
+            // function fn2(){
+            //     console.log('点击2');
+            // }
+            // box.addEventListener('click',fn1)
+            // box.addEventListener('click',fn2)
+            // box.removeEventListener('click',fn2)
+
+            function addEvent(node, eventName, callback) {
+                if (node.addEventListener) {
+                    node.addEventListener(eventName, callback)
+                    console.log('高级');
+                } else {
+                    node.attachEvent('on' + eventName, callback)
+                    console.log('低级');
+                }
+            }
+            addEvent(box,'click',function(){
+                console.log('点击');
+            })
+        }
+    </script>
+</body>
+
+</html>

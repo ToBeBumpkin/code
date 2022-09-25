@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function getFirstElementChild(node) {
+            if (node.firstElementChild) {
+                return node.firstElementChild
+            } else {
+                let res = node.firstChild
+                while (res !== null && res.nodeType !== 1) {
+                    res = res.nextSibling
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

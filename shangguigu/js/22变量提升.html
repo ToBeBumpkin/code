@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js代码执行顺序
+        //     预解析代码
+        //         找到代码块中使用var,function开头的变量和方法
+        //         对var声明的变量进行提前声明，对function开头的方法进行提前创建
+        //     逐行执行
+        // 变量的提升
+        //     只对var声明的变量提升
+
+        // 函数的提升
+        //     只对function声明的函数提升
+
+
+
+        console.log(a);
+        var a = 1;
+        console.log(a);
+        var a = 2;
+        console.log(a);
+        function a() {
+            alert(3)
+        }
+        console.log(a);
+        a = function () {
+            alert(4)
+        }
+        console.log(a);
+        var a;
+        console.log(a);
+
+
+        // var a;
+        // function a() {
+        //     alert(3)
+        // }
+
+        // console.log(a); //function () {alert(3)}
+        // a = 1;
+        // console.log(a); //1
+        // a = 2;
+        // console.log(a); //2
+        // console.log(a); //2
+        // a = function () {
+        //     alert(4)
+        // }
+        // console.log(a); //function () {alert(4)}
+        // console.log(a); //function () {alert(4)}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arr = [3, 1, 6, 5, 2, 3, 2, 9, 7, 8, 0]
+        console.time()
+        for (let j = 0; j < arr.length - 1; j++) {
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    arr.splice(i, 2, arr[i + 1], arr[i])
+                }
+            }
+            // console.log(arr);
+        }
+        console.timeEnd()
+
+        console.time()
+        for (let j = 0; j < arr.length - 1; j++) {
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    let temp = arr[i]
+                    arr[i] = arr[i + 1]
+                    arr[i + 1] = temp
+                }
+            }
+            // console.log(arr);
+        }
+        console.timeEnd()
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

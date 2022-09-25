@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnTag">按钮</button>
+    <div id="divTag">divTag</div>
+
+    <script>
+        let btnTag = document.querySelector("#btnTag")
+        let divTag = document.querySelectorAll("#divTag")[0]
+        console.log(divTag);
+
+        btnTag.onclick = function(){
+            divTag.setAttribute("aa","bb")
+            console.log(divTag.getAttribute("aa"));
+        }
+    </script>
+</body>
+</html>

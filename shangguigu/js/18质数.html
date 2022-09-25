@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 循环优化，减少循环的次数
+        
+        console.time()
+        for (let i = 2; i < 10000; i++) {
+            let flag = true;
+            for (let j = 2; j < i; j++) {
+                if (i % j === 0) {
+                    flag = false
+                }
+            }
+            if (flag) {
+                // console.log(i);
+            }
+        }
+        console.timeEnd()
+
+        console.time()
+        for (let i = 2; i < 10000; i++) {
+            let flag = true;
+            for (let j = 2; j < i; j++) {
+                if (i % j === 0) {
+                    flag = false
+                    break
+                }
+            }
+            if (flag) {
+                // console.log(i);
+            }
+        }
+        console.timeEnd()
+
+        console.time()
+        for (let i = 2; i < 10000; i++) {
+            let flag = true;
+            for (let j = 2; j <= i ** 0.5; j++) {
+                if (i % j === 0) {
+                    flag = false
+                    break
+                }
+            }
+            if (flag) {
+                // console.log(i);
+            }
+        }
+        console.timeEnd()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

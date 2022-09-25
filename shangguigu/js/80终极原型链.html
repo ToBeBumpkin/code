@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Computer(name, price, brand, color) {
+            this.name = name;
+            this.price = price;
+            this.brand = brand;
+            this.color = color;
+        }
+        Computer.prototype.playGame = function(){
+            console.log('打游戏');
+        }
+        var c = new Computer('macBook',18000,'Apple','silver')
+        console.log(Computer.prototype.constructor === Computer);
+    </script>
+</body>
+
+</html>

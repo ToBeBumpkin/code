@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 构造函数执行流程
+        //     1，new 创建一个新的对象
+        //     2，将新的对象设置为函数中的this
+        //     3,执行函数中的代码
+        //     4，将新的对象作为返回值返回
+        function Person(name, age) {
+            console.log(this);
+            this.name = name;
+            this.age = age
+        }
+        let p = new Person("小明",12)
+
+        console.log(p);
+
+        console.log(p instanceof Person);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 闭包
+        //     目的
+        //         为了保护变量不被污染
+        //     条件
+        //         嵌套函数
+        //         内层函数调用外层函数属性
+        //         返回内层函数
+        //     销毁
+        //         内层函数被销毁
+        function outer() {
+            let count = 0;
+            function inner() {
+                count++;
+                console.log(count);
+            }
+            return inner
+        }
+        let o = outer()
+        o()
+        o()
+        o();
+        o = null
+
+        // var let 
+        //     var 能重复声明 let 不行
+        //     var 会变量提升 let 不会
+        //     var 没有块作用域 let 有
+        //     var 声明的变量会添加到window对象中 let 不会
+        //     var 兼容性好 let 不好
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            margin-top: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        window.onload = function () {
+            let tag = document.querySelector('div')
+
+            document.addEventListener('mousewheel', fun)
+            document.addEventListener('DOMMouseScroll', fun)
+
+            let flag = true;
+            function fun(e) {
+                if (e.wheelDelta) {
+                    console.log('ie/chrome');
+                    if (e.wheelDelta < 0) {
+                        flag = false
+                    } else {
+                        flag = true
+                    }
+                } else if (e.detail) {
+                    console.log('firefox');
+                    if (e.detail > 0) {
+                        flag = false
+                    } else {
+                        flag = true
+                    }
+                }
+                if (flag) {
+                    console.log(1);
+                    tag.style.height = tag.offsetHeight - 10 + 'px'
+                    console.log(tag.offsetWidth);
+                } else {
+                    console.log(2);
+                    tag.style.height = tag.offsetHeight + 10 + 'px'
+                    console.log(tag.offsetWidth);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

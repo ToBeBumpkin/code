@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // break 跳出最近的循环
+        // continue 用来跳过当次循环
+        
+        console.time()
+
+        for (let i = 0; i < 5; i++) {
+            console.log(i, "外层循环");
+            for (let j = 0; j < 5; j++) {
+                if (j === 2) {
+                    break;
+                    // continue;
+                }
+                console.log("  ", j, "内层循环");
+            }
+        }
+        console.timeEnd()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

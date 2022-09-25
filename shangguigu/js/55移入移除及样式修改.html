@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tag {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: all 1s;
+        }
+
+        #son {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tag">
+        <div id="son"></div>
+    </div>
+
+    <script>
+        window.onload = function(){
+            let tagNode = document.querySelector('#tag')
+            let sonNode = document.querySelector('#son')
+
+            // tagNode.onmouseenter = function(){
+            //     console.log('tagNode移入');
+            //     this.style.backgroundColor='yellow'
+            // }
+            // tagNode.onmouseleave = function(){
+            //     console.log('tagNode移出');
+            //     this.style.backgroundColor='green'
+            // }
+
+            tagNode.onmouseout = function(){
+                console.log('tagNode离开');
+                this.style.backgroundColor='yellow'
+            }
+            tagNode.onmouseover = function(){
+                console.log('tagNode悬停');
+                this.style.backgroundColor='green'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #tag {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            border: 10px solid red;
+            left: 50px;
+            top: 50px;
+            background-color: black;
+        }
+
+        img {
+            width: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tag"></div>
+    <img src="./img/animal0.webp" alt="">
+    <script>
+        window.onload = function () {
+
+            let tag = document.querySelector("#tag")
+            let img = document.querySelector('img')
+
+
+            tag.onmousedown = function (e) {
+                e = e || window.event
+                // console.log('鼠标按下');
+                // console.log(e);
+
+                let W = document.documentElement.clientWidth
+                let H = document.documentElement.clientHeight
+
+                let startX = e.clientX
+                let startY = e.clientY
+
+                let eleX = tag.offsetLeft
+                let eleY = tag.offsetTop
+
+
+                document.onmousemove = function (e) {
+                    // console.log('移动');
+                    let endX = e.clientX
+                    let endY = e.clientY
+
+                    let disX = endX - startX
+                    let disY = endY - startY
+
+                    let lastX = eleX + disX
+                    let lastY = eleY + disY
+
+                    if (lastX < 10) {
+                        lastX = 0
+                    } else if (W - tag.offsetWidth - 10 < lastX) {
+                        lastX = W - tag.offsetWidth
+                    }
+
+                    if (lastY < 10) {
+                        lastY = 0
+                    } else if (H - tag.offsetHeight - 10 < lastY) {
+                        lastY = H - tag.offsetHeight
+                    }
+
+                    tag.style.left = lastX + 'px'
+                    tag.style.top = lastY + 'px'
+
+                    // console.log(tag);
+
+                    let tagL = tag.offsetLeft + tag.offsetWidth
+                    let tagT = tag.offsetTop + tag.offsetHeight
+                    let tagR = tag.offsetLeft
+                    let tagB = tag.offsetTop
+
+                    let imgL = img.offsetLeft
+                    let imgT = img.offsetTop
+                    let imgR = img.offsetLeft + img.offsetWidth
+                    let imgB = img.offsetTop + img.offsetHeight
+
+                    if (tagL >= imgL && tagR <= imgR && tagT >= imgT && tagB <= imgB) {
+                        console.log('碰撞');
+                        img.src = './img/animal1.webp'
+                    } else {
+                        img.src = './img/animal10.webp'
+                    }
+
+
+                }
+                document.onmouseup = function () {
+                    console.log('鼠标抬起');
+                    document.onmousemove = document.onmouseup = null
+                }
+                return false
+            }
+        }
+    </script>
+</body>
+
+</html>

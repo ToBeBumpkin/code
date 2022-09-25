@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <p>p1</p>
+        <hr>
+        <span>span1</span>
+        <hr>
+        <p>p2</p>
+        <hr>
+        <span>span2</span>
+        <hr>
+        <p>p3</p>
+    </div>
+    <script>
+        window.onload = function () {
+            let box = document.querySelector('#box')
+
+            console.log(box.childNodes);
+
+            // console.log(allChildElementNodes(box.childNodes));
+            console.log(box.children);
+
+            function allChildElementNodes(node) {
+                let arr = []
+                for (let i = 0; i < node.length; i++) {
+                    if (node[i].nodeType === 1) {
+                        arr.push(node[i])
+                    }
+                }
+                return arr
+            }
+
+            // firstChild
+            // firstElementChild
+            // previousSibling
+            // previousElementSibling
+            // nextSibling
+            // nextElementSibling
+            // parentNode
+            // parentElement
+        }
+    </script>
+</body>
+
+</html>

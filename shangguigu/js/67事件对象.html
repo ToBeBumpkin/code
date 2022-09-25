@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="tag">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+
+    <script>
+        window.onload = function () {
+            let tag = document.querySelector("#tag")
+
+            // 无法冒泡，不能事件委托
+            // tag.onmouseenter = function(e){
+            //     e = e || window.event
+            //     let target = e.target || e.srcElement;
+            //     if(target.nodeName === 'LI'){
+            //         target.style.backgroundColor = 'blue'
+            //     }
+            // }
+            // tag.onmouseleave = function(e){
+            //     e = e || window.event
+            //     let target = e.target || e.srcElement;
+            //     if(target.nodeName === 'LI'){
+            //         target.style.backgroundColor = 'none'
+            //     }
+            // }
+
+            tag.onmouseover = function (e) {
+                e = e || window.event
+                let target = e.target || e.srcElement;
+                console.log(target);
+                if (target.nodeName === 'LI') {
+                    target.style.background = 'blue'
+                }
+            }
+            tag.onmouseout = function (e) {
+                e = e || window.event
+                let target = e.target || e.srcElement;
+                console.log(target);
+                if (target.nodeName === 'LI') {
+                    target.style.background = 'none'
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

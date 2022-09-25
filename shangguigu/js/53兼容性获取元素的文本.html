@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div id="tag">tag</div>
+
+    <script>
+
+        let btnNode = document.querySelector('button')
+        let tagNode = document.querySelector('#tag')
+        btnNode.onclick = function(){
+            setOrGetContent(tagNode,'我是后来人')
+            console.log(setOrGetContent(tagNode));
+        }
+
+        function setOrGetContent(node, content) {
+            if (arguments.length === 1) {
+                if (node.textContent) {
+                    return node.textContent
+                } else {
+                    return node.innerText
+                }
+            } else {
+                if (node.textContent) {
+                    node.textContent = content
+                } else {
+                    node.innerText = content
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

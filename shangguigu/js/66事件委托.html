@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">button</button>
+    <ul id="tag">
+        <li>事件委托</li>
+        <li>事件委托</li>
+        <li>事件委托</li>
+        <li>事件委托</li>
+        <li>事件委托</li>
+    </ul>
+
+    <script>
+        window.onload = function () {
+            let btn = document.querySelector('#btn')
+            let tag = document.querySelector('#tag')
+            btn.onclick = function () {
+                let li = document.createElement('li')
+                li.innerHTML = '我是新加的'
+                tag.appendChild(li)
+            }
+            tag.onclick = function (e) {
+                console.log(e);
+                if (e.target.nodeName === 'LI') {
+                    e.target.style.backgroundColor = 'blue'
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

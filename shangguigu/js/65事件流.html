@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #one {
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+
+        #two {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #three {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one">
+        <div id="two">
+            <div id="three"></div>
+        </div>
+    </div>
+    <script>
+        let one = document.querySelector('#one')
+        let two = document.querySelector('#two')
+        let three = document.querySelector('#three')
+
+        //相同事件类型，向上冒泡
+        one.onclick = function () {
+            console.log('one');
+        }
+        two.onclick = function (e) {
+            e.stopPropagation();
+            console.log('two');
+        }
+        three.onclick = function () {
+            console.log('three');
+        }
+    </script>
+</body>
+
+</html>

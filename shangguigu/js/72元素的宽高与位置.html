@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            margin: 100px 200px;
+            position: relative;
+        }
+        #tag{
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 10px solid black;
+            background-color: antiquewhite;
+            margin-left: 50px;
+            position: absolute;
+            left:50px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="tag"></div>
+    </div>
+    <script>
+        window.onload = function(){
+            let tag = document.querySelector('#tag')
+            let clientW = tag.clientWidth
+            let offsetW = tag.offsetWidth
+            let clientL = tag.clientLeft
+            let offsetL = tag.offsetLeft
+            console.log(clientW);
+            console.log(offsetW);
+            console.log(clientL);
+            console.log(offsetL);
+        }
+    </script>
+</body>
+</html>

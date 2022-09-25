@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tag {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* margin: 100px; */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tag"></div>
+
+    <script>
+        window.onload = function () {
+            let tag = document.querySelector('#tag')
+            document.onmousemove = function (e) {
+                let h = ''
+                h += '<br/>clientX:' + e.clientX + 'clientY:' + e.clientY
+                h += '<br/>pageX:' + e.pageX + 'pageY:' + e.pageY
+                h += '<br/>offsetX:' + e.offsetX + 'offsetY:' + e.offsetY
+                h += '<br/>screenX:' + e.screenX + 'screenY:' + e.screenY
+                tag.innerHTML = h
+                let zw = document.documentElement.offsetWidth || document.body.offsetWidth
+                let a = zw - tag.offsetWidth
+                if (e.clientX > a) {
+                    tag.style.left = a + 'px'
+                } else {
+                    tag.style.left = e.clientX + 'px'
+                }
+                tag.style.top = e.clientY + 'px'
+            }
+        }
+    </script>
+</body>
+
+</html>

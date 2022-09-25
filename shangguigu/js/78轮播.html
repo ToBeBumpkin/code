@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box1 {
+            width: 500px;
+            height: 300px;
+            background-color: black;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .listWrap {
+            width: 9999px;
+            position: absolute;
+            left: 0;
+        }
+
+        .listWrap li {
+            float: left;
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .listWrap li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .listWrap li:nth-child(1) {
+            background-color: aqua;
+        }
+
+        .listWrap li:nth-child(2) {
+            background-color: gold;
+        }
+
+        .listWrap li:nth-child(3) {
+            background-color: green;
+        }
+
+        .listWrap li:nth-child(4) {
+            background-color: orange;
+        }
+
+        .listWrap li:nth-child(5) {
+            background-color: blueviolet;
+        }
+
+        .listWrap li:nth-child(6) {
+            background-color: blueviolet;
+        }
+
+        .circle {
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .circle li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .circle li.active {
+            background-color: red;
+        }
+
+        .prev,
+        .next {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            color: white;
+            cursor: pointer;
+            font-size: 60px;
+            top: 100px;
+            padding: 10px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <ul class="listWrap">
+            <li>1<img src="./img/animal1.webp" alt=""></li>
+            <li>2<img src="./img/animal2.webp" alt=""></li>
+            <li>3<img src="./img/animal3.webp" alt=""></li>
+            <li>4<img src="./img/animal4.webp" alt=""></li>
+        </ul>
+        <ul class="circle">
+        </ul>
+        <span class="prev">&lt;</span>
+        <span class="next">&gt;</span>
+    </div>
+
+    <script>
+        window.onload = function () {
+            let boxNode = document.querySelector('.box1')
+            let prevNode = document.querySelector('.prev')
+            let nextNode = document.querySelector('.next')
+            let listNode = document.querySelector('.listWrap')
+            let circleNode = document.querySelector('.circle')
+
+            let index = 2
+
+            let itemTime = 300
+            let frameTime = 30
+
+            let isOn = false
+
+            init()
+
+            function init() {
+                let itemsNode = document.querySelectorAll('.listWrap li')
+                for (let i = 0; i < itemsNode.length; i++) {
+                    let circleLiNode = document.createElement('li')
+                    circleLiNode.setAttribute('key', i + 1)
+                    circleNode.appendChild(circleLiNode)
+                }
+                nextCircle()
+
+                let firstNode = getfirstElementChild(listNode)
+                let lastNode = getlastElementChild(listNode)
+
+                let newFirstNode = firstNode.cloneNode(true)
+                let newLastNode = lastNode.cloneNode(true)
+
+                listNode.appendChild(newFirstNode)
+                listNode.insertBefore(newLastNode, firstNode)
+            }
+
+            let itemsNode = document.querySelectorAll('.listWrap li')
+
+            let itemsLength = itemsNode.length
+            let itemWidth = boxNode.offsetWidth;
+
+            listNode.style.left = -index * itemWidth + 'px'
+
+            let circleLis = document.querySelectorAll('.circle li')
+            for (let i = 0; i < circleLis.length; i++) {
+                circleLis[i].onclick = function () {
+                    nextPage(i + 1)
+                }
+            }
+
+            let allTimer = setInterval(() => {
+                nextPage(true)
+            }, 1000)
+
+            boxNode.onmouseenter = function () {
+                clearInterval(allTimer)
+            }
+            boxNode.onmouseleave = function () {
+                allTimer = setInterval(() => {
+                    nextPage(true)
+                }, 1000)
+            }
+
+            nextNode.onclick = function () {
+                nextPage(true)
+            }
+            prevNode.onclick = function () {
+                nextPage(false)
+            }
+
+            function nextPage(next) {
+                if (isOn) {
+                    return
+                }
+                isOn = true
+
+                let offset
+                if (typeof next === 'boolean') {
+                    offset = next ? -itemWidth : itemWidth
+                    next ? index++ : index--
+                } else {
+                    offset = -(next - index) * itemWidth
+                    index = next
+                }
+                if (index < 1) {
+                    index = itemsLength - 2
+                } else if (index > itemsLength - 2) {
+                    index = 1
+                }
+                let step = offset / (itemTime / frameTime)
+                let left = listNode.offsetLeft
+                let targetLeft = offset + left
+
+                let timer = setInterval(() => {
+                    left += step
+                    if (left == targetLeft) {
+                        clearInterval(timer)
+                        isOn = false
+                        // 如果左偏移小于实际总宽
+                        if (left < -(itemsLength - 2) * itemWidth) {
+                            // 定位到第一个
+                            left = -itemWidth
+                        } else if (left > -itemWidth) {
+                            // 定位到最后一个
+                            left = -(itemsLength - 2) * itemWidth
+                        }
+                    }
+                    listNode.style.left = left + 'px'
+                }, frameTime)
+
+                nextCircle()
+            }
+
+            function nextCircle() {
+                let circleLis = document.querySelectorAll('.circle li')
+                for (let i = 0; i < circleLis.length; i++) {
+                    circleLis[i].classList.remove('active')
+                }
+                circleLis[index - 1].classList.add('active')
+            }
+
+            //firstElementChild
+            function getfirstElementChild(ele) {
+                //能力检测
+                if (ele.firstElementChild != undefined) {  // 谷歌火狐
+                    return ele.firstElementChild;
+                } else {   // IE8
+
+                    var nodeFirst = ele.firstChild;
+                    while (nodeFirst != null && nodefirst.nodeType != 1) {
+                        nodefirst = nodefirst.nextSibling;
+                    }
+                    return nodefirst;
+                }
+            }
+            //lastElementChild
+            function getlastElementChild(ele) {
+                //能力检测
+                if (ele.lastElementChild != undefined) {  // 谷歌火狐
+                    return ele.lastElementChild;
+                } else {   // IE8
+
+                    var nodeLast = ele.lastChild;
+                    while (nodeLast != null && nodelast.nodeType != 1) {
+                        nodelast = nodelast.lastSibling;
+                    }
+                    return nodelast;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

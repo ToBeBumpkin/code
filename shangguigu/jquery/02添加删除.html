@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table class="tab">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>salary</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td><a href="empty?id=123">delete</a></td>
+        </tr>
+    </table>
+    <form action="javascript:void(0)">
+        <h3>添加</h3>
+        name: <input class="name" value="123" type="text"><br>
+        email: <input class="email" value="123" type="text"><br>
+        salary: <input class="salary" value="123" type="text"><br>
+        <button class="btn">submit</button>
+    </form>
+
+    <script src="./js/jquery-1.10.1.js"></script>
+    <script>
+        $(function () {
+            var $tab = $('.tab')
+            var $name = $('.name')
+            var $email = $('.email')
+            var $salary = $('.salary')
+            var $btn = $('.btn')
+
+            $btn.click(function () {
+                var name = $name.val().trim()
+                var email = $email.val().trim()
+                var salary = $salary.val().trim()
+                if (!name) {
+                    console.log('name空');
+                    return
+                }
+                if (!email) {
+                    console.log('email空');
+                    return
+                }
+                if (!salary) {
+                    console.log('salary空');
+                    return
+                }
+
+                $('<tr></tr>').append('<td>' + name + '</td>')
+                    .append('<td>' + email + '</td>')
+                    .append('<td>' + salary + '</td>')
+                    .append('<td><a href="empty?id=123">删除</a></td>').appendTo($tab)
+                $('a').click(clickA(e))
+            })
+
+            $('a').click(clickA)
+            function clickA(event) {
+                console.log(event);
+                event.preventDefault()
+                var $tr = $(this).closest('tr')
+                if (confirm($tr.children(':first').html())) {
+                    $tr.remove()
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

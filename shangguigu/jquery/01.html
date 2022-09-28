@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">测试</button>
+    <div>
+        <input class="inp" type="text">
+    </div>
+    <script src="./js/jquery-1.10.1.js"></script>
+    <script>
+        // console.log(typeof $);
+        // console.log($ === jQuery);
+        // console.log(window.jQuery === jQuery);
+        /*
+        // $的四种传参
+        // 1，参数为函数，约等于页面加载完成（window.onload）
+        $(function () {
+            // 2，参数为选择器字符,通过选择器去匹配元素封装成jquery对象返回
+            $('#btn').click(function () {
+                // 3,参数为dom对象，将当前对象转换成jquery对象返回
+                alert($(this).html())
+                // 4，参数为html标签字符串，将当前标签创建，并直接转化为jquery对象
+                $('<input class="inp" type="text">').appendTo('div')
+            })
+        })
+        */
+    </script>
+</body>
+
+</html>

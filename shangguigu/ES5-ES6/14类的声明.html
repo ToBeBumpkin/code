@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数声明
+        // function Phone(brand, price) {
+        //     this.brand = brand;
+        //     this.price = price;
+        // }
+        // Phone.prototype.call = function (someone) {
+        //     console.log(`可以打电话给${someone}`);
+        // }
+        // Phone.prototype.sendMessage = function (someone) {
+        //     console.log(`可以给${someone}发信息`);
+        // }
+        // let hw = new Phone('华为',4000)
+        // console.log(hw);
+        // 类的声明
+        class Phone {
+            constructor(brand, price) {
+                this.brand = brand
+                this.price = price
+            }
+            call(someone) {
+                console.log(`可以打电话给${someone}`);
+            }
+            sendMessage(someone) {
+                console.log(`可以给${someone}发信息`);
+            }
+        }
+        let xm = new Phone('小明',2000)
+        console.log(xm);
+    </script>
+</body>
+
+</html>

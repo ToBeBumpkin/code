@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            a: '字符串',
+            b: [1, 2, 3, 4],
+            c: 1,
+            d: {
+                e: '对象中的字符串',
+                f: ['xiaoming', 'laowu']
+            },
+            g() {
+                console.log('方法');
+            }
+        }
+
+        console.log(deepCopy(obj));
+
+        function deepCopy(data) {
+            let type = getType(data)
+            let container;
+            if (type === 'Array') {
+                container = []
+            }
+            if (type === 'Object') {
+                container = {}
+            }
+            for (let i in data) {
+                let sonType = getType(data[i])
+                if (sonType === "Array" || sonType === 'Object') {
+                    container[i] = deepCopy(data[i])
+                }else if(sonType === 'Function'){
+                    container[i] = data[i].bind(container)
+                } else {
+                    container[i] = data[i]
+                }
+            }
+            return container
+        }
+
+        function getType(data) {
+            return Object.prototype.toString.call(data).slice(8, -1)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组解构赋值
+        const arr = ['青龙','白虎','朱雀','玄武']
+        let [q,b,z,x] = arr
+        console.log(q,b,z,x);
+
+        // 对象解构赋值
+        const obj = {
+            name:"青龙",
+            age:10000,
+            td:['会飞','五爪','龙角'],
+            fly:function(){
+                console.log('会飞');
+            }
+        }
+        let {name,age,fly,td:[h,w,l]} = obj
+
+        console.log(name,age,fly,h,w,l);
+    </script>
+</body>
+</html>

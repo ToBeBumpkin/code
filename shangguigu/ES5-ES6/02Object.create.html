@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Object.create()
+        //创建新的对象，并把已有函数作为其原型
+        var Dog = {
+            name:'大黄',
+            age:10,
+            say:function(){
+                console.log('汪汪汪');
+            }
+        }
+
+        var Dog1 = Object.create(Dog,{
+            color:{
+                value:'黄黑',
+                // 是否可修改
+                writable:true,
+                // 是否可删除
+                configurable:true,
+                // 是否可枚举(遍历)
+                enumerable:true
+            },
+            cate:{
+                value:'田园犬',
+                // 是否可修改
+                writable:true,
+                // 是否可删除
+                configurable:true,
+                // 是否可枚举(遍历)
+                enumerable:true,
+            },
+            eat:{
+                get:function(a){
+                    console.log(a);
+                    return this.food
+                },
+                set:function(a){
+                    console.log(a);
+                    this.food = a
+                }
+            }
+        })
+
+        // 修改值
+        // Dog1.color = '花的'
+        // 删除值
+        // delete Dog1.color
+        // console.log(Dog1);
+        // 枚举值
+        // for(var i in Dog1){
+        //     console.log(i);
+        // }
+        console.log(Dog1.food);
+        Dog1.eat = '大骨头'
+        console.log(Dog1);
+        console.log(Dog1.food);
+    </script>
+</body>
+</html>

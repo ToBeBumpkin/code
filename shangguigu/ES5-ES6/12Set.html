@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Set 集合 类似数组 成员都是唯一的
+        // const s1 = new Set([1,2,3,4,1,2,3,4])
+        // // 元素个数
+        // console.log(s1.size);
+        // // 添加
+        // s1.add(5)
+        // // 删除
+        // s1.delete(1)
+        // // forof
+        // for (const i of s1) {
+        //     console.log(i);
+        // }
+        // // 是否包含
+        // console.log(s1.has(2));
+        // // 清空
+        // s1.clear()
+
+        // console.log(s1);
+
+
+        // 数组去重
+        // const arr = [1,2,3,4,1,2,3,4]
+        // console.log([...new Set(arr)]);
+        // 交集
+        let arr = [1,2,3,4,1,2]
+        let arr2 = [3,4,5,6,4,3]
+        // let res = [...new Set(arr)].filter(i=>{
+        //     let res2 = new Set(arr2)
+        //     if(res2.has(i)){
+        //         return i
+        //     }
+        // })
+        // console.log(res);
+        // 并集
+        // let res = [...new Set([...new Set(arr),...new Set(arr2)])]
+        // console.log(res);
+        // 差集
+        let res = [...new Set(arr)].filter(i=>{
+            let res2 = new Set(arr2)
+            if(res2.has(i)){
+                return false
+            }else{
+                return true
+            }
+        })
+        console.log(res);
+    </script>
+</body>
+</html>

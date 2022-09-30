@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        // 青龙 白虎 朱雀 玄武
+        const arr = ['青龙', '白虎', '朱雀', '玄武']
+        console.log(...arr);
+
+        let obj1 = {
+            a: '青龙'
+        }
+        let obj2 = {
+            b: '白虎'
+        }
+        let obj3 = {
+            c: '朱雀'
+        }
+        let obj4 = {
+            d: '玄武'
+        }
+        let obj5 = { ...obj1, ...obj2, ...obj3, ...obj4 }
+        console.log(obj5);
+
+        // 数组克隆
+
+        const arr2 = [...arr]
+        console.log(arr === arr2);
+
+        // 将为数组转为真正的数组
+        let divs = document.querySelectorAll('div')
+        console.log(divs);
+        let divArr = [...divs]
+        console.log(divArr);
+    </script>
+</body>
+
+</html>

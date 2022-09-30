@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 判断两个值是否相等
+        // Object.is()
+        // console.log(Object.is(10,10));
+        // 合并对象
+        let obj = {
+            a: 1,
+            b: 2
+        }
+        let obj2 = {
+            c: 3,
+            d: 4,
+            a:100
+        }
+        // Object.assign(target,source)
+        // let res = Object.assign(obj,obj2)
+        // console.log(res);
+        // obj2.d = 5
+        // console.log(res);
+        // 设置隐式原型
+        // Object.__proto__
+        obj.__proto__ = obj2
+        console.log(obj);
+    </script>
+</body>
+
+</html>

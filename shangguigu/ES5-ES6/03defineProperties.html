@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var animal = {
+            name:'动物名称',
+            age:2,
+            say:function(){
+                console.log('动物叫');
+            }
+        }
+
+        Object.defineProperties(animal,{
+            _category:{
+                value:null,
+                writable:true
+            },
+            category:{
+                // value:'品种',
+                // writable:true,
+                configurable:true,
+                enumerableL:true,
+                get:function(){
+                    return this._category
+                },
+                set:function(a,b){
+                    console.log(a);
+                    this._category = a
+                }
+            }
+        })
+
+        console.log(animal);
+        animal.category = '田园犬'
+        console.log(animal.category);
+    </script>
+</body>
+</html>

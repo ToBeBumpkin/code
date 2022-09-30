@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(a, b, c) {
+            console.log(this);
+            return a + b + c
+        }
+
+        fn(1,2,3)
+
+        console.log(fn.call({description:'call调用'},1,1,1));
+
+        console.log(fn.apply({description:'apply调用'},[2,1,1]));
+
+        var obj = fn.bind({description:'bind调用'})
+
+        console.log(obj(1,2,3));
+        
+        console.log(fn.bind({description:'bind调用'})(3,3,3));
+    </script>
+</body>
+
+</html>

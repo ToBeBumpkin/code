@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 静态成员是属于类的，不是属于实例对象的
+        class Phone{
+            static name="手机"
+            static call = function(){
+                console.log('静态方法打电话');
+            }
+        }
+        console.log(Phone.name);
+        let sj = new Phone
+        console.log(sj);
+    </script>
+</body>
+</html>

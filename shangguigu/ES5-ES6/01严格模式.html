@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 严格模式声明
+        // 全局
+
+        // 'use strict';
+
+        // 函数内部
+        function fn() {
+            'use strict'
+        }
+
+        //1，不允许使用未声明的变量
+        // a = 100
+        // console.log(a);
+
+        // 2,函数内部的this不指向window
+        // function fn1(){
+        //     console.log(this);
+        // }
+        // fn1()
+
+        // 3，eval内部的函数变量只能在函数内部使用，不能在函数外部使用
+        // eval('var a=10')
+        // console.log(a);
+
+        // 4，对象不能重复声明变量
+        // var obj = {
+        //     a:10,
+        //     a:20
+        // }
+
+        // 5,函数不能有重复的形参
+        // function fn2(a,a){
+
+        // }
+        
+        //  6，新增一些保留字
+    </script>
+</body>
+
+</html>

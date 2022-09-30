@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let s1 = Symbol('张三')
+        // let s2 = Symbol('张三')
+        // console.log(s1);
+        // console.log(typeof s1);
+        // console.log(s1 === s2);
+
+
+        // Symbol 唯一且合理的使用方式，就是为对象添加属性
+        // let game = {
+        //     name:'俄罗斯方块'
+        // }
+        // let up = Symbol('up')
+        // game[up] = function(){
+        //     console.log(this.name);
+        // }
+
+        // console.log(game);
+        // game[up]()
+
+        let obj = {
+            name:'西游四人组',
+            [Symbol.replace]:function(){
+                console.log('我被replace方法处理了');
+                return this.name
+            }
+        }
+        let str = '唐僧'
+        let res = str.replace(obj,'abc')
+        console.log(res);
+    </script>
+</body>
+</html>

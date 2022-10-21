@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <button id="btn1">POST请求</button>
+    <button id="btn2">GET请求</button>
+
+    <script>
+        const btn1 = document.querySelector('#btn1')
+        const btn2 = document.querySelector('#btn2')
+
+        btn2.onclick = function(){
+            axios({
+                method: "GET",
+                url: "http://localhost/server",
+                params: {
+                    a: 1,
+                    b: 2
+                },
+                headers: {
+                    c: 3,
+                    d: 4
+                },
+                data: {
+                    e: 5,
+                    f: 6
+                }
+            }).then(response => {
+                console.log(response);
+            })
+        }
+
+        btn1.onclick = function () {
+            axios({
+                method: "POST",
+                url: "http://localhost/server",
+                params: {
+                    a: 1,
+                    b: 2
+                },
+                headers: {
+                    c: 3,
+                    d: 4
+                },
+                data: {
+                    e: 5,
+                    f: 6
+                }
+            }).then(response => {
+                console.log(response);
+            })
+        }
+    </script>
+</body>
+
+</html>

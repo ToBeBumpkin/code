@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本使用</title>
+</head>
+
+<body>
+    <button>点击抽奖</button>
+    <script>
+        let btn = document.querySelector('button')
+        btn.onclick = function () {
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let num = rand(0, 100)
+                    if (num < 30) {
+                        resolve('恭喜你，你的中奖号为' + num)
+                    } else {
+                        reject('再接再厉，你的号码为' + num)
+                    }
+                })
+            })
+            p.then((a) => {
+                console.log(a);
+            }, (b) => {
+                console.log(b);
+            })
+        }
+        function rand(m, n) {
+            return Math.ceil(Math.random() * (n - m + 1)) + m - 1
+        }
+
+
+
+    </script>
+</body>
+
+</html>

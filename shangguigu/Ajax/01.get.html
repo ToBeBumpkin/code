@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">发送get请求</button>
+    <div id="result1"></div>
+    <button id="btn2">发送post请求</button>
+    <div id="result2"></div>
+
+    <script>
+        const btn1 = document.querySelector('#btn1')
+        const btn2 = document.querySelector('#btn2')
+        const result1 = document.querySelector('#result1')
+        const result2 = document.querySelector('#result2')
+
+        btn1.onclick = function(){
+            const xhr = new XMLHttpRequest()
+
+            xhr.open('GET','http://127.0.0.1/serve?keyword=小明')
+
+            xhr.send()
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    console.log(xhr.status);
+                    console.log(xhr.statusText);
+                    console.log(xhr.getAllResponseHeaders());
+                    console.log(xhr.responseText);
+                    result1.innerHTML = xhr.responseText
+                }
+            }
+        }
+
+        btn2.onclick = function(){
+            const xhr = new XMLHttpRequest()
+            xhr.open('POST','http://127.0.0.1/serve')
+            xhr.setRequestHeader('name','abc')
+            xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+            xhr.send('username=admin&password=admin')
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    console.log(xhr.status);
+                    console.log(xhr.statusText);
+                    console.log(xhr.getAllResponseHeaders());
+                    console.log(xhr.responseText);
+                    result2.innerHTML = xhr.responseText
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

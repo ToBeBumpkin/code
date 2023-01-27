@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test1 {
+            display: block;
+            width: 100%;
+            height: 200px;
+            background-color: red;
+        }
+
+        #zz {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(77, 77, 77, 0.5);
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <a id="test1" href="http://www.baidu.com">去百度</a>
+    <div id="zz">
+        <button id="btn">button</button>
+    </div>
+    <script>
+        const btn = document.querySelector("#btn")
+        const zz = document.querySelector("#zz")
+        btn.addEventListener('touchend', (event) => {
+            event.preventDefault()
+            zz.style.display = 'none'
+        })
+    </script>
+</body>
+
+</html>

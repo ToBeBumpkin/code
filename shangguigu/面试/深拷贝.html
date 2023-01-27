@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            name: '小明',
+            age: 12,
+            sex: true,
+            girlFriend: null,
+            car: undefined,
+            hobby: ['抽烟', '喝酒', '烫头'],
+            family: {
+                name: '乌托邦',
+                num: 6,
+                member: ['爸爸', '妈妈', '孩子'],
+                address: {
+                    s: '安徽省'
+                }
+            },
+            eat() {
+                console.log('我喜欢吃小吃');
+            }
+        }
+        function getType(obj) {
+            let result = Object.prototype.toString.call(obj).trim().split(' ')[1].split(']')[0]
+            return result
+        }
+
+        // console.log(getType(obj.name));
+        // console.log(getType(obj.age));
+        // console.log(getType(obj.sex));
+        // console.log(getType(obj.girlFriend));
+        // console.log(getType(obj.car));
+        // console.log(getType(obj.family));
+        // console.log(getType(obj.hobby));
+        // console.log(getType(obj.eat));
+
+        function deepCopy(target, map = new Map()) {
+            const type = getType(target)
+            if (type === 'Object' || type === 'Array') {
+                console.log('开始');
+                let cloneTarget = map.get(target)
+                if (cloneTarget) {
+                    return cloneTarget
+                }
+                if (type === 'Array') {
+                    cloneTarget = []
+                    map.set(target, cloneTarget)
+                    target.forEach((item, index) => {
+                        cloneTarget[index] = deepCopy(item)
+                    })
+                } else {
+                    cloneTarget = {}
+                    map.set(target, cloneTarget)
+                    Object.keys(target).forEach((item, index) => {
+                        cloneTarget[item] = deepCopy(target[item], map)
+                    })
+                }
+                return cloneTarget
+            } else {
+                return target
+            }
+        }
+
+        let o = [1, 2, 3, 4, 5]
+
+        console.log(deepCopy(obj));
+
+
+        function deepClone2(target) {
+            const type = getType(target)
+            if (type === 'Object' || type === 'Array') {
+                const cloneTarget = type === 'Array' ? [] : {}
+                for (const key in target) {
+                    if (target.hasOwnProperty(key)) {
+                        cloneTarget[key] = deepClone2(target[key])
+                    }
+                }
+                return cloneTarget
+            } else {
+                return target
+            }
+        }
+        console.log(deepClone2(obj));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx语法规则</title>
+    <script src="./js/react.development16.js"></script>
+    <script src="./js/react-dom.development16.js"></script>
+    <script src="./js/babel.js"></script>
+    <style>
+        .test {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+
+        const data = 'hello React'
+
+        const VDOM = (
+            <div>
+                <h1 style={{ color: 'white', fontSize: '50px' }} className="test">{data}</h1>
+                <h2>2022年</h2>
+                <input type="text" />
+            </div>
+        )
+
+        ReactDOM.render(VDOM, document.getElementById('test'))
+
+        /*
+            jsx语法规则
+                1,创建虚拟DOM时，不要写引号
+                2,标签中要混入js代码，要使用{}
+                3,标签中要使用class类样式，要用className指定
+                4,标签中要使用内联样式要使用style={{color:'white'}},属性名要转换为小驼峰
+                5,只能有一个根标签
+                6,标签必须闭合
+        */
+    </script>
+</body>
+
+</html>

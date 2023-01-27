@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development16.js"></script>
+    <script src="./js/react-dom.development16.js"></script>
+    <script src="./js/babel.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        class Login extends React.Component {
+            state = {
+                username: '',
+                password: ''
+            }
+            saveFormData = (dataType, event) => {
+                this.setState({ [dataType]: event.target.value })
+            }
+            handleSubmit = (event) => {
+                event.preventDefault()
+                const { username, password } = this.state
+                console.log(username, password);
+            }
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        用户名：<input onChange={event => this.saveFormData('username', event)} type="text" name="username" />
+                        密码：<input onChange={event => this.saveFormData('password', event)} type="text" name="password" />
+                        <button>提交</button>
+                    </form>
+                )
+            }
+        }
+        ReactDOM.render(<Login />, document.getElementById('test'))
+    </script>
+</body>
+
+</html>

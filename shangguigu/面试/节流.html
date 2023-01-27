@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+</head>
+<button id="btn">按钮</button>
+
+<body>
+    <script>
+
+        let btn = document.querySelector('#btn')
+        btn.onclick = throttle(say, 1000)
+        // btn.onclick = say
+
+        function say(event) {
+            console.log(this);
+            console.log(event);
+            console.log('函数');
+        }
+
+        function throttle(callback, delay) {
+            let start = 0
+            return function (event) {
+                let current = Date.now()
+                if (current - start > delay) {
+                    callback.call(this, event)
+                    start = current
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

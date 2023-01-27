@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#test {
+  width: 2rem;
+  height: 1rem;
+  background-color: red;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development16.js"></script>
+    <script src="./js/react-dom.development16.js"></script>
+    <script src="./js/babel.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        class Demo extends React.Component {
+            render() {
+                console.log(this); //this指向组件实例对象
+                return <h2>我是类式组件，我目前使用于复杂组件的定义</h2>
+            }
+        }
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+        // 当执行ReactDOM.render(<Demo />....后发生了什么
+        //     1，React解析组件标签，寻找组件位置
+        //     2，发现是类式组件，React创建组件的实例对象
+        //     3，通过实例对象调用Render方法
+    </script>
+</body>
+
+</html>

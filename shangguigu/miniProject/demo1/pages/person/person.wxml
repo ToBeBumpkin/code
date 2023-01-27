@@ -1,0 +1,4 @@
+<!--pages/person/person.wxml-->
+<text>pages/person/person.wxml</text>
+<view>{{userInfo.username}}</view>
+<button bindtap="tologin">去登陆</button>

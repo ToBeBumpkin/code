@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <h1>插值语法</h1>
+        <p>hello,{{name}}--{{age}}</p>
+        <h1>指令语法</h1>
+        <p :x="name">指令</p>
+        <a :href="age">指令2</a>
+        <h1>单向绑定</h1>
+        <input :value="name" type="text">
+        <h1>双向绑定</h1>
+        <input v-model="age" type="text">
+    </div>
+    <div id="demo2">
+        <h1>{{msg}}</h1>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el: '#demo',
+            data() {
+                console.log(this);
+                return {
+                    name: '小明',
+                    age: 12
+                }
+            },
+        })
+        console.log(vm);
+
+        const vm2 = new Vue({
+            data: {
+                msg: '第二种绑定方法'
+            }
+        })
+        setTimeout(() => {
+            vm2.$mount('#demo2')
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

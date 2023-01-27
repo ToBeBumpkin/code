@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem适配</title>
+    <style>
+        .tag{
+            width: 8rem;
+            height: 4rem;
+            margin: 1rem auto;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tag"></div>
+    <script>
+        // 根字号 = 视口宽 / 10
+        // 值 = 设计元素宽 / 设计稿宽 / 10 rem
+        function setHtmlFontSize() {
+            const cw = document.documentElement.clientWidth
+            document.documentElement.style.fontSize = cw / 10 + 'px'
+            console.log(cw);
+        }
+
+        window.onload = setHtmlFontSize
+        window.onresize = setHtmlFontSize
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局</title>
+</head>
+<!-- 圣杯布局的介绍：header、footer定高，left和right顶宽，center是的宽自适应的 -->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        font-size: 60px;
+    }
+
+    .header,
+    .footer {
+        height: 100px;
+        background: red;
+        clear: both;
+    }
+
+    .container {
+        padding-left: 200px;
+        padding-right: 150px;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .container>div {
+        float: left;
+        height: 100%;
+        position: relative;
+    }
+
+    .center {
+        width: 100%;
+        background: orange;
+    }
+
+    .left {
+        width: 200px;
+        background-color: blue;
+        margin-left: -100%;
+        left: -200px;
+
+    }
+
+    .right {
+        width: 150px;
+        background-color: green;
+        margin-left: -150px;
+        left: 150px;
+    }
+</style>
+
+<body>
+    <div class="header">header</div>
+    <div class="container">
+        <div class="center">center</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div class="footer">footer</div>
+</body>
+
+</html>

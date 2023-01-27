@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重写bind</title>
+</head>
+
+<body>
+    <script>
+        function say(a, b) {
+            console.log('say:', this, a, b)
+        }
+        var p = {
+            name: '小明',
+            age: 20
+        }
+
+        let sayFn = say.bind(p, '参数1', '参数2')
+        sayFn()
+
+        function myCall2(fn, obj, ...args) {
+            if (obj === null || obj === undefined) {
+                obj = window
+            }
+            obj.tempFn = fn
+            let result = obj.tempFn(...args)
+            delete obj.tempFn
+            return result
+        }
+
+        function myBind(fn, obj, ...args) {
+            if (obj === null || obj === undefined) {
+                obj = window
+            }
+            return () => {
+                return myCall2(fn, obj, ...args)
+            }
+        }
+        let sayFn1 = myBind(say, p, '参数1', '参数2')
+        sayFn1()
+    </script>
+</body>
+
+</html>

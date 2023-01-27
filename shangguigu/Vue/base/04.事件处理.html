@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <button @click="handelBtn1">btn1</button>
+        <button @click="handelBtn2($event,66)">btn2</button>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        const v = new Vue({
+            el: '#demo',
+            data() {
+                return {
+
+                }
+            },
+            methods: {
+                handelBtn1(event) {
+                    console.log(event);
+                },
+                handelBtn2(event, num) {
+                    console.log(event, num);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

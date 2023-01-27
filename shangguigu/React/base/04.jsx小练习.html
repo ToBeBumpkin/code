@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development16.js"></script>
+    <script src="./js/react-dom.development16.js"></script>
+    <script src="./js/babel.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        const data = ['angula', 'react', 'vue']
+        const VDOM = (
+            <div>
+                <h1>技术展</h1>
+                <ul>
+                    {
+                        data.map((item, index) => {
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
+            </div>
+        )
+        ReactDOM.render(VDOM, document.getElementById('test'))
+
+        /*
+            js表达式
+                会产生一个值，可以放在任何需要值的地方
+                a
+                a+b
+                arr.map()
+                function test()
+            js语句
+                for()
+                if()
+        */
+    </script>
+</body>
+
+</html>

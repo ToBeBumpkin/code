@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重写apply</title>
+</head>
+
+<body>
+    <script>
+        function say(a, b) {
+            console.log('say:', this, a, b);
+        }
+        var p = {
+            name: '小明',
+            age: 12
+        }
+        say.apply(p, ['参数1', '参数2'])
+
+        Function.prototype.myApply = function (obj, args) {
+            if (obj === null || obj === undefined) {
+                obj = window
+            }
+            obj.tempFn = this
+            let result = obj.tempFn(...args)
+            delete obj.tempFn
+            return result
+        }
+        say.myApply(p, ['参数1', '参数2'])
+
+        function myApply2(fn, obj, args) {
+            if (obj === null || obj === undefined) {
+                obj = window
+            }
+            obj.tempFn = fn
+            let result = obj.tempFn(...args)
+            delete obj.tempFn
+            return result
+        }
+        myApply2(say, p, ['参数1', '参数2'])
+    </script>
+</body>
+
+</html>

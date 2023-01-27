@@ -1,0 +1,5 @@
+<!--pages/login/login.wxml-->
+<text>登陆</text>
+<input type="text" id="phone" placeholder="phone" 	bindinput="handleInput"/>
+<input type="text" id="password" placeholder="password"	bindinput="handleInput"/>
+<button bindtap="login">登陆</button>

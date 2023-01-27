@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+
+<body>
+    <script>
+        let str = `
+        abcdefg hijklmn opq rst uvw xyz
+        ABCDEFG
+        HIJKLMN
+        17602127112
+        OPQ
+        RST
+        UVW
+        XYZ
+        枯藤老树昏鸦，
+        小桥流水人家，
+        古道西风瘦马，
+        夕阳西下
+        断肠人 在天涯。
+        abcdefg hijklmn opq rst uvw xyz
+        ABCDEFG
+        HIJKLMN
+        OPQ
+        RST
+        UVW
+        XYZ
+        枯藤老树昏鸦，
+        小桥流水人家，
+        古道西风瘦马，
+        夕阳西下
+        断肠人 在天涯
+        `
+        let reg = /^(1[0-9]{2})[0-9]{8}$/
+
+        let res = str.match(reg)
+
+        console.log(res);
+
+        // let result1 = reg.exec(str)
+        // let result1 = reg.test(str)
+        // let result1 = str.match(reg)
+        // let result1 = str.matchAll(reg)
+        // let s = [...result1]
+
+        // console.log(result1);
+        // console.log(s);
+
+    </script>
+</body>
+
+</html>

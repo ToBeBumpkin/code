@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写call</title>
+</head>
+
+<body>
+    <script>
+        function say(a, b) {
+            console.log('say:', this, a, b)
+        }
+        var p = {
+            name: '小明',
+            age: 20
+        }
+
+        //原生方法调用
+        say.call(p, '参数1', '参数2')
+
+        // 重写call 1
+        Function.prototype.myCall = function (obj, ...args) {
+            if (obj === null || obj === undefined) {
+                obj = window
+            }
+            obj.tempFn = this
+            let result = obj.tempFn(...args)
+            delete obj.tempFn
+            return result
+        }
+        say.myCall(p, '参数1', '参数2')
+
+        // 重写call 2
+        function myCall2(fn, obj, ...args) {
+            if (obj === null || obj === undefined) {
+                obj = window
+            }
+            obj.tempFn = fn
+            let result = obj.tempFn(...args)
+            delete obj.tempFn
+            return result
+        }
+        myCall2(say, p, '参数1', '参数2')
+    </script>
+</body>
+
+</html>

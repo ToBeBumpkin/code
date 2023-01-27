@@ -1,0 +1,6 @@
+<!--components/NavHeader/NavHeader.wxml-->
+<view>
+  <text>组件</text>
+  <text>{{title}}</text>
+  <text>{{nav}}</text>
+</view>

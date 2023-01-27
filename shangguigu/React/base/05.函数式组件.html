@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development16.js"></script>
+    <script src="./js/react-dom.development16.js"></script>
+    <script src="./js/babel.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        function Demo() {
+            console.log(this);  //此处的this是undefinded ,因为经过babel的编译，开启了严格模式
+            return <h2>我是函数式定义的组件(我目前只用简单的组件定义)</h2>
+        }
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+        // 执行了ReactDOM.render(<Demo />。。。后发生了什么
+            // 1，React 解析组件标签，寻找Demo组件的位置
+            // 2,React发现Demo是用函数定义的，随后直接调用Demo函数组件，将返回的虚拟DOM直接返回页面
+    </script>
+</body>
+
+</html>

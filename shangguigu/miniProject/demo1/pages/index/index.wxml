@@ -1,0 +1,52 @@
+<view class="indexContainer">
+  <swiper class="banner" indicator-dots>
+    <swiper-item>
+      <image src="/static/image/animal0.webp" alt="" />
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/image/animal0.webp" alt="" />
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/image/animal0.webp" alt="" />
+    </swiper-item>
+  </swiper>
+  <view class="navContainer">
+    <view class="navItem">
+      <text class="iconfont icon-weixin"></text>
+      <text>每日推荐</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-weixin"></text>
+      <text>歌单</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-weixin"></text>
+      <text>排行榜</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-weixin"></text>
+      <text>电台</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-weixin"></text>
+      <text>直播</text>
+    </view>
+  </view>
+  <view class="recommendContainer">
+    <view class="header">
+      <text class="title">推荐歌曲</text>
+      <view>
+        <text>为你精心推荐</text>
+        <text class="more">查看更多</text>
+      </view>
+    </view>
+    <!-- 内容区 -->
+    <scroll-view class="recommendScroll" enable-flex scroll-x>
+      <view class="scrollItem" wx:for="{{arr}}" wx:key="id">
+        <image src="/static/image/animal3.webp"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <NavHeader title="推荐歌曲"></NavHeader>
+</view>
